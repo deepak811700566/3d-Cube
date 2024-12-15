@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinning Cube Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Shippori Mincho', serif;
+            background: linear-gradient(135deg, #000000, #d1e4fa);
+            color: #918b8b;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotateCube 10s linear infinite;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.9;
+        }
+
+        .cube-face:nth-child(1) { transform: rotateY(0deg) translateZ(150px); background-image: url('nruto.png'); }
+        .cube-face:nth-child(2) { transform: rotateY(90deg) translateZ(150px); background-image: url('sasuke.png'); }
+        .cube-face:nth-child(3) { transform: rotateY(180deg) translateZ(150px); background-image: url('obito.png'); }
+        .cube-face:nth-child(4) { transform: rotateY(-90deg) translateZ(150px); background-image: url('kakashi.png'); }
+        .cube-face:nth-child(5) { transform: rotateX(90deg) translateZ(150px); background-image: url('pain.png'); }
+        .cube-face:nth-child(6) { transform: rotateX(-90deg) translateZ(150px); background-image: url('zirayiy.png'); }
+
+        @keyframes rotateCube {
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .content h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            max-width: 300px;
+            margin: 0 auto 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: hsl(54, 100%, 52%);
+            color: #fffffff5;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff2525;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 300px;
+                height: 300px;
+            }
+
+            .content h1 {
+                font-size: 5em;
+            }
+
+            .content p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cube">
+            <div class="cube-face"></div>
+            <div class="cube-face"></div>
+            <div class="cube-face"></div>
+            <div class="cube-face"></div>
+            <div class="cube-face"></div>
+            <div class="cube-face"></div>
+        </div>
+        <div class="content">
+            <h1>私の世界へようこそ</h1>
+            <p>CSS 3D 変換の魔法を探る</p>
+            <p>興味があれば参加してください.</p>
+            <a href="#" class="btn">もっと詳しく知る</a>
+        </div>
+    </div>
+</body>
+</html>
